@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотогалерея</title>
+    <link rel="stylesheet" href="style_site.css">
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+<section id="gallery">
+    <h2 class="h2_header">Фотогалерея</h2>
+
+    <!-- Перша карусель -->
+    <div class="carousel-container">
+        <button class="nav prev">&#10094;</button>
+        <div class="carousel-track">
+            <div class="card">
+                <h3>Сапсан</h3>
+                <a href="https://uk.wikipedia.org/wiki/Сапсан" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/PeregrineFalcon.jpg/330px-PeregrineFalcon.jpg" alt="Сапсан" />
+                </a>
+                <p>Опис сапсана...</p>
+            </div>
+
+            <div class="card">
+                <h3>Чорний лелека</h3>
+                <a href="https://uk.wikipedia.org/wiki/Лелека_чорний" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Ciconia_nigra_1_%28Marek_Szczepanek%29.jpg/330px-Ciconia_nigra_1_%28Marek_Szczepanek%29.jpg" alt="Чорний лелека" />
+                </a>
+                <p>Опис чорного лелеки...</p>
+            </div>
+        </div>
+        <button class="nav next">&#10095;</button>
+    </div>
+
+    <!-- Друга карусель -->
+    <div class="carousel-container">
+        <button class="nav prev">&#10094;</button>
+        <div class="carousel-track">
+            <div class="card">
+                <h3>Кречет</h3>
+                <a href="https://uk.wikipedia.org/wiki/Кречет" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Falco_rusticolus_with_prey.jpg/330px-Falco_rusticolus_with_prey.jpg" alt="Кречет" />
+                </a>
+                <p>Опис кречета...</p>
+            </div>
+
+            <div class="card">
+                <h3>Білий лелека</h3>
+                <a href="https://uk.wikipedia.org/wiki/Лелека_білий" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Ciconia_ciconia_-Spain-8.jpg/330px-Ciconia_ciconia_-Spain-8.jpg" alt="Білий лелека" />
+                </a>
+                <p>Опис білого лелеки...</p>
+            </div>
+        </div>
+        <button class="nav next">&#10095;</button>
+    </div>
+
+</section>
+
+<!-- Підключаємо JS наприкінці body -->
+<script>
+    // Знаходимо всі каруселі на сторінці
+    document.querySelectorAll('.carousel-container').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const prevButton = carousel.querySelector('.prev');
+        const nextButton = carousel.querySelector('.next');
+        
+        const cardWidth = carousel.querySelector('.card').offsetWidth; // ширина однієї картки
+
+        prevButton.addEventListener('click', () => {
+            track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+
+        nextButton.addEventListener('click', () => {
+            track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+    });
+</script>
+
+</body>
+</html>
+
